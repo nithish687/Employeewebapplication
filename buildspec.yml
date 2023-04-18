@@ -20,7 +20,8 @@ phases:
   post_build:
     commands:
       - echo "Post-build phase"
-      - screen -d -m python3 manage.py runserver 0:8000
+      - yum install screen -y
+      - screen -d -m python3 manage.py runserver
       # Add post-build commands here
 artifacts:
   files:
