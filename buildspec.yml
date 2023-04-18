@@ -14,10 +14,13 @@ phases:
   build:
     commands:
       - echo "Build phase"
-      # Add build commands here
+      - python3 -m venv venv
+      - source venv/bin/activate
+      - pip install -r /home/ec2-user/django-aws_cicd/requirements.txt
   post_build:
     commands:
       - echo "Post-build phase"
+      - screen -d -m python3 manage.py runserver 0:8000
       # Add post-build commands here
 artifacts:
   files:
